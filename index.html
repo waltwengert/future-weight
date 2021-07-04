@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Future Weight</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=0"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+
+  <body>
+    <div>
+      <h1>Future Weight</h1>
+      <h3>Enter your information to calculate your TDEE:</h3>
+      <h4>(TDEE = Total Daily Energy Expenditure. i.e. the amount of calories it takes to not gain or lose any weight)</h4>
+    </div>
+    
+    <form>
+      <div>
+        <input type="radio" id="metric" name="units" checked>
+        <label for="metric">Metric</label>
+        
+        <input type="radio" id="imperial" name="units">
+        <label for="imperial">Imperial</label>
+      </div>
+      
+      <div>
+        <label for="age">Age</label>
+        <input type="text" name="age">
+      </div>
+      
+      <div>
+        <label for="sex">Sex</label>
+  
+        <input type="radio" id="male" name="sex" checked>
+        <label for="male">Male</label>
+        
+        <input type="radio" id="female" name="sex">
+        <label for="female">Female</label>
+      </div>
+      
+      <div>
+        <label for="height">Height</label>
+        <input type="text" name="height">
+      </div>
+      
+      <div>
+        <label for="weight">Weight</label>
+        <input type="text" name="weight">
+      </div>
+      
+      <div>
+        <label for="activity">Level of activity</label>
+        <select name="activity" id="activity">
+          <option value="sedentary">Sedentary</option>
+          <option value="light">Light</option>
+          <option value="moderate">Moderate</option>
+          <option value="heavy">Heavy</option>
+          <option value="athlete">Athlete</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="bodyfat">Body fat %</label>
+        <input type="text" name="bodyfat">
+      </div>
+  
+      <div>
+        <input type="submit" value="Submit">
+      </div>
+    </form>
+  </body>
+</html>
