@@ -46,15 +46,18 @@ function calculateTdee() {
     console.log(age + "years " + height + "cm " + weight + "kg " + activity + " " + bodyfat);
 
     var bmr = calculateBmr(age, height, weight, bodyfat);
-    console.log("BMR = " + bmr);
+    console.log("Calculated BMR = " + bmr);
 
-    var tdee = bmr * ACTIVITY_MULTIPLIERS.get(activity);
-    console.log("TDEE = " + tdee);
+    var tdee = Math.round(bmr * ACTIVITY_MULTIPLIERS.get(activity));
+    console.log("Calculated TDEE = " + tdee);
 
-    alert("Your BMR is " + bmr + "\nYour TDEE is " + tdee);
+    var bmi = calculateBmi(height, weight);
+    console.log("Calculated BMI = " + bmi);
+
+    document.getElementById("maintCals").innerText = "Your BMR is " + bmr + "\nYour TDEE is " + tdee + "\nYour BMI is " + bmi;
 }
 
-function calculateBmr(age, height, weight, bodyfat) {
+function calculateBmr(age, height, weight, bodyfat) { //TODO: utilise bodyfat in the calculation
     //normalise to metric units
     if (!global_units) {
         weight = weight * 0.45359237;
@@ -62,8 +65,19 @@ function calculateBmr(age, height, weight, bodyfat) {
     }
 
     if (global_sex) { //male
-        return ((10 * weight) + (6.25 * height) - (5 * age) + 5);
+        return Math.round(((10 * weight) + (6.25 * height) - (5 * age) + 5));
     } else { //female
-        return ((10 * weight) + (6.25 * height) - (5 * age) - 161);
+        return Math.round(((10 * weight) + (6.25 * height) - (5 * age) - 161));
     }
+}
+
+function calculateBmi(height, weight) {
+    //normalise to metric units
+    if (!global_units) {
+        weight = weight * 0.45359237;
+        height = height * 2.54;
+    }
+    heightM = height / 100;
+
+    return Math.round((weight / heightM / heightM) * 10) / 10; //round the BMI equation to 1 decimal
 }
