@@ -23,10 +23,10 @@
       
       <form>
         <div>
-          <input type="radio" id="metric" name="units" checked>
+          <input type="radio" id="metric" name="units" onchange="changeUnits()" checked>
           <label for="metric">Metric</label>
           
-          <input type="radio" id="imperial" name="units">
+          <input type="radio" id="imperial" name="units" onchange="changeUnits()">
           <label for="imperial">Imperial</label>
         </div>
         
