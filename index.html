@@ -23,37 +23,37 @@
       
       <form>
         <div>
-          <input type="radio" id="metric" name="units" onchange="changeUnits()" checked>
+          <input type="radio" name="units" onchange="changeUnits()" checked>
           <label for="metric">Metric</label>
           
-          <input type="radio" id="imperial" name="units" onchange="changeUnits()">
+          <input type="radio" name="units" onchange="changeUnits()">
           <label for="imperial">Imperial</label>
         </div>
         
         <div>
           <label for="age">Age</label>
-          <input type="text" name="age">
+          <input type="text" id="age" name="age">
         </div>
         
         <div>
           <label for="sex">Sex</label>
     
-          <input type="radio" id="male" name="sex" checked>
+          <input type="radio" name="sex" onchange="updateSex()" checked>
           <label for="male">Male</label>
           
-          <input type="radio" id="female" name="sex">
+          <input type="radio" name="sex" onchange="updateSex()">
           <label for="female">Female</label>
         </div>
         
         <div>
           <label for="height">Height</label>
-          <input type="text" name="height">
+          <input type="text" id="height" name="height">
           <label for="height" id="heightUnits">cm</label>
         </div>
         
         <div>
           <label for="weight">Weight</label>
-          <input type="text" name="weight">
+          <input type="text" id="weight" name="weight">
           <label for="height" id="weightUnits">kg</label>
         </div>
         
@@ -64,17 +64,17 @@
             <option value="light">Light</option>
             <option value="moderate">Moderate</option>
             <option value="heavy">Heavy</option>
-            <option value="athlete">Athlete</option>
+            <option value="insane">Insane</option>
           </select>
         </div>
         
         <div>
           <label for="bodyfat">Body fat %</label>
-          <input type="text" name="bodyfat">
+          <input type="text" id="bodyfat" name="bodyfat" placeholder="Optional">
         </div>
     
         <div>
-          <input type="submit" value="Submit">
+          <button type="button" onclick="calculateTdee()">Submit</button>
         </div>
       </form>
     </div>
