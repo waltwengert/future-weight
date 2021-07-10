@@ -13,67 +13,78 @@
   </head>
 
   <body>
-    <div>
-      <h1>Future Weight</h1>
-      <h3>Enter your information to calculate your TDEE:</h3>
-      <h4>(TDEE = Total Daily Energy Expenditure. i.e. the amount of calories it takes to not gain or lose any weight)</h4>
-    </div>
+    <h1>Future Weight</h1>
+
+    <div id="tdee">
+      <div>
+        <h2>Enter your information to calculate your TDEE:</h2>
+        <h4>(TDEE = Total Daily Energy Expenditure. i.e. the amount of calories it takes to not gain or lose any weight)</h4>
+      </div>
+      
+      <form>
+        <div>
+          <input type="radio" id="metric" name="units" checked>
+          <label for="metric">Metric</label>
+          
+          <input type="radio" id="imperial" name="units">
+          <label for="imperial">Imperial</label>
+        </div>
+        
+        <div>
+          <label for="age">Age</label>
+          <input type="text" name="age">
+        </div>
+        
+        <div>
+          <label for="sex">Sex</label>
     
-    <form>
-      <div>
-        <input type="radio" id="metric" name="units" checked>
-        <label for="metric">Metric</label>
+          <input type="radio" id="male" name="sex" checked>
+          <label for="male">Male</label>
+          
+          <input type="radio" id="female" name="sex">
+          <label for="female">Female</label>
+        </div>
         
-        <input type="radio" id="imperial" name="units">
-        <label for="imperial">Imperial</label>
-      </div>
-      
-      <div>
-        <label for="age">Age</label>
-        <input type="text" name="age">
-      </div>
-      
-      <div>
-        <label for="sex">Sex</label>
-  
-        <input type="radio" id="male" name="sex" checked>
-        <label for="male">Male</label>
+        <div>
+          <label for="height">Height</label>
+          <input type="text" name="height">
+          <label for="height" id="heightUnits">cm</label>
+        </div>
         
-        <input type="radio" id="female" name="sex">
-        <label for="female">Female</label>
-      </div>
-      
-      <div>
-        <label for="height">Height</label>
-        <input type="text" name="height">
-        <label for="height" id="heightUnits">cm</label>
-      </div>
-      
-      <div>
-        <label for="weight">Weight</label>
-        <input type="text" name="weight">
-        <label for="height" id="weightUnits">kg</label>
-      </div>
-      
-      <div>
-        <label for="activity">Level of activity</label>
-        <select name="activity" id="activity">
-          <option value="sedentary">Sedentary</option>
-          <option value="light">Light</option>
-          <option value="moderate">Moderate</option>
-          <option value="heavy">Heavy</option>
-          <option value="athlete">Athlete</option>
-        </select>
-      </div>
-      
-      <div>
-        <label for="bodyfat">Body fat %</label>
-        <input type="text" name="bodyfat">
-      </div>
-  
-      <div>
-        <input type="submit" value="Submit">
-      </div>
-    </form>
+        <div>
+          <label for="weight">Weight</label>
+          <input type="text" name="weight">
+          <label for="height" id="weightUnits">kg</label>
+        </div>
+        
+        <div>
+          <label for="activity">Level of activity</label>
+          <select name="activity" id="activity">
+            <option value="sedentary">Sedentary</option>
+            <option value="light">Light</option>
+            <option value="moderate">Moderate</option>
+            <option value="heavy">Heavy</option>
+            <option value="athlete">Athlete</option>
+          </select>
+        </div>
+        
+        <div>
+          <label for="bodyfat">Body fat %</label>
+          <input type="text" name="bodyfat">
+        </div>
+    
+        <div>
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+
+    <div id="gainOrLose">
+      <h2>Do you want to gain or lose weight?</h2>
+    </div>
+
+    <div id="results">
+      <h2>Results</h2>
+    </div>
   </body>
 </html>
