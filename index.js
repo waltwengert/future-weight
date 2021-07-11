@@ -1,7 +1,18 @@
+const REG_INT = /^\d+$/;
+
 const METRIC_HEIGHT = "cm";
 const METRIC_WEIGHT = "kg";
 const IMPERIAL_HEIGHT = "in";
 const IMPERIAL_WEIGHT = "lbs";
+
+const MIN_AGE = 0;
+const MAX_AGE = 140;
+
+const MIN_HEIGHT = 0;
+const MAX_HEIGHT = 300;
+
+const MIN_WEIGHT = 0;
+const MAX_WEIGHT = 500;
 
 const ACTIVITY_MULTIPLIERS = new Map();
 ACTIVITY_MULTIPLIERS.set("sedentary", 1.2);
@@ -36,6 +47,20 @@ function updateSex() {
     }
 }
 
+function validStats(age, height, weight) { //return false if stats are invalid
+    if (!REG_INT.test(age) || age < MIN_AGE || age > MAX_AGE) {
+        alert("Age must be a whole number between " + MIN_AGE + " and " + MAX_AGE);
+        return false;
+    } else if (!REG_INT.test(height) || height < MIN_HEIGHT || height > MAX_HEIGHT) {
+        alert("Height must be a whole number between " + MIN_HEIGHT + " and " + MAX_HEIGHT);
+        return false;
+    } else if (!REG_INT.test(weight) || weight < MIN_WEIGHT || weight > MAX_WEIGHT) {
+        alert("Weight must be a whole number between " + MIN_WEIGHT + " and " + MAX_WEIGHT);
+        return false;
+    }
+    return true;
+}
+
 function calculateTdee() {
     var age = document.getElementById("age").value;
     var height = document.getElementById("height").value;
@@ -43,7 +68,11 @@ function calculateTdee() {
     var activity = document.getElementById("activity").value;
     var bodyfat = document.getElementById("bodyfat").value;
 
-    console.log(age + "years " + height + "cm " + weight + "kg " + activity + " " + bodyfat);
+    if (!validStats(age, height, weight)) {
+        return;
+    }    
+
+    console.log("User stats: " + age + "years " + height + "cm " + weight + "kg " + activity + " " + bodyfat);
 
     var bmr = calculateBmr(age, height, weight, bodyfat);
     console.log("Calculated BMR = " + bmr);
